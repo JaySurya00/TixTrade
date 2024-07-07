@@ -23,6 +23,9 @@ app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(signoutRouter);
 app.use(signupRouter);
+app.get('/health', (req, res)=>{
+  res.status(200).json({message: 'Everything is ok'});
+})
 
 app.all('*', async (req, res) => {
   throw new NotFoundError();
